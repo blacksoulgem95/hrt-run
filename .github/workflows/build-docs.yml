@@ -1,0 +1,43 @@
+on:
+  push:
+    branches:
+      - 'main'
+name: deploy
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Setup PHP Action
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: |
+          sudo apt update && sudo apt install git zip unzip -y
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHubActions BOT"
+          npm install
+
+      - name: Build the site
+        run: npm run build
+
+      - name: deploy
+        run: |
+          if [ -d "./docs" ]; then rm -Rf ./docs; fi
+          mv ./dist ./docs
+          git add ./docs
+          git commit -m "Deployment of website - $(date)"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.DEPLOY_SECRET }}
+          branch: live
+          force: true
+
