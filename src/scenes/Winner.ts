@@ -23,10 +23,10 @@ export class WinnerScene extends Phaser.Scene {
 
         var titleText: string = "YAS! You're a good girl";
         this.title = this.add.text(screenCenterX - 200, screenCenterY - 50, titleText,
-            { font: '48px Arial', color: '#FBFBAC'});
-        var hintText: string = "Click to replay";
+            { font: '48px Arial', color: '#FBFBAC', align: 'center'});
+        var hintText: string = "Click to replay\n\nArt by @paxiti@twitter.com";
         this.hint = this.add.text(screenCenterX - 90, screenCenterY + 50, hintText,
-            { font: '24px Arial', color: '#FBFBAC' });
+            { font: '24px Arial', color: '#FBFBAC', align: 'center' });
         this.input.on('pointerdown', function (/*pointer*/) {
             this.scene.start("GameScene");
         }, this);
