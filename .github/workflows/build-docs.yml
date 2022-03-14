@@ -12,7 +12,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Setup PHP Action
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
