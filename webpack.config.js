@@ -19,7 +19,6 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-                {from: "public/CNAME", to: ""},
                 {from: "public/**/*.jpg", to: "assets/[name][ext]"},
                 {from: "public/**/*.png", to: "assets/[name][ext]"},
             ],
