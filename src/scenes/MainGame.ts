@@ -24,7 +24,7 @@ export class GameScene extends Phaser.Scene {
     }
 
     preload(): void {
-        this.load.setBaseURL('/')
+        this.load.setBaseURL('')
         this.load.image("pill", "assets/estradiol.png");
         this.load.image("sand", "assets/sand.jpg");
         this.load.image('bg', 'assets/flag.png')

@@ -11,7 +11,7 @@ export class WinnerScene extends Phaser.Scene {
     }
 
     preload(): void {
-        this.load.setBaseURL('/')
+        this.load.setBaseURL('')
         this.load.image("girl", "assets/girl.png");
     }
 
